@@ -91,3 +91,13 @@ az resource show --ids /subscriptions/$SUBS/resourceGroups/$RG/providers/Microso
 
 terraform destroy  -var domain=$DOMAIN -var rg=$RG
 ```
+
+### \# **improvements**
+
+#### **delete**
+
+if you switch to a new tenant in Azure Portal, `az rest DELETE` won't work instead to remove you have to do it either manually or automate it - you have a checklist with preconditions to be done to allow removal (try, you will see)
+
+#### **python library**
+
+there is available python package `azure-mgmt-azureadb2c` for b2c, you can find more details [here](https://docs.microsoft.com/en-us/python/api/azure-mgmt-azureadb2c/azure.mgmt.azureadb2c.v2019_01_01_preview.operations.b2ctenantsoperations?view=azure-python-preview) .
