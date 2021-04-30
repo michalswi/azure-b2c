@@ -1,0 +1,13 @@
+{
+    "location":"europe",
+    "sku": {
+        "name":"Standard",
+        "tier":"A0"
+    },
+    "properties": {
+        "createTenantProperties": {
+            "displayName":"b2c-demo",
+            "countryCode":"PL"
+        }
+    }
+}
