@@ -2,6 +2,12 @@ data "azurerm_client_config" "current" {
 }
 variable "domain" {}
 variable "rg" {}
+variable "location" {}
+
+resource "azurerm_resource_group" "rg" {
+  name     = var.rg
+  location = var.location
+}
 
 resource "null_resource" "b2c" {
   triggers = {
@@ -26,4 +32,7 @@ resource "null_resource" "b2c" {
       az rest --method delete --url https://management.azure.com/subscriptions/$SUBS/resourceGroups/$RG/providers/Microsoft.AzureActiveDirectory/b2cDirectories/$DOMAIN.onmicrosoft.com?api-version=2019-01-01-preview --verbose
     EOF
   }
+  depends_on = [
+    azurerm_resource_group.rg
+  ]
 }
